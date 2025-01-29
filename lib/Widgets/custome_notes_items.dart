@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomeNoteItems extends StatelessWidget {
-  const CustomeNoteItems({
+class NoteItems extends StatelessWidget {
+  const NoteItems({
     super.key,
   });
 
@@ -27,7 +27,8 @@ class CustomeNoteItems extends StatelessWidget {
               padding: const EdgeInsets.only(top: 16, bottom: 16),
               child: Text(
                 'This my body create by Tamer Elateeq',
-                style: TextStyle(color: Colors.blueGrey, fontSize: 16),
+                style: TextStyle(
+                    color: const Color.fromARGB(221, 54, 54, 54), fontSize: 16),
               ),
             ),
             trailing: IconButton(
@@ -42,7 +43,10 @@ class CustomeNoteItems extends StatelessWidget {
             padding: const EdgeInsets.only(right: 24),
             child: Text(
               '29 jan 2025',
-              style: TextStyle(color: Colors.blueGrey, fontSize: 16),
+              style: TextStyle(
+                color: const Color.fromARGB(221, 54, 54, 54),
+                fontSize: 16,
+              ),
             ),
           )
         ],

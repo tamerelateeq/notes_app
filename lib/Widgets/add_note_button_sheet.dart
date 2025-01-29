@@ -34,9 +34,6 @@ class AddNoteButtonSheet extends StatelessWidget {
               ),
               CustomeButton(
                 text: 'Add',
-                ontap: () {
-                  Navigator.pushNamed(context, EditNotesView.id);
-                },
               )
             ],
           ),

@@ -14,6 +14,8 @@ class AddNoteForm extends StatefulWidget {
 class _AddNoteFormState extends State<AddNoteForm> {
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
+
+  String? title, content;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -26,6 +28,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           // this textfield for Title
           CustomeTextField(
+            onSaved: (value) {
+              title = value;
+            },
             hintText: 'Title',
           ),
           SizedBox(
@@ -33,6 +38,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           // this textfield for contant
           CustomeTextField(
+            onSaved: (vlaue) {
+              content = vlaue;
+            },
             hintText: 'Contant',
             maxLines: 5,
           ),
@@ -40,6 +48,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
             height: 32,
           ),
           CustomeButton(
+            ontap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
             text: 'Add',
           )
         ],

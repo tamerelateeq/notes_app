@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/custome_button.dart';
-import 'package:notes_app/Widgets/cutome_textfiled.dart';
+import 'package:notes_app/Widgets/add_note_form.dart';
 
 class AddNoteButtonSheet extends StatelessWidget {
   const AddNoteButtonSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16),
+    return Padding(
+      padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
-        child: AddNoteButtonSheet(),
+        child: AddNoteForm(),
       ),
     );
   }

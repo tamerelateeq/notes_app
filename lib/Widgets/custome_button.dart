@@ -4,7 +4,7 @@ import 'package:notes_app/constant.dart';
 // ignore: must_be_immutable
 class CustomeButton extends StatelessWidget {
   String? text;
-  CustomeButton({Key? key, required this.text, this.ontap}) : super(key: key);
+  CustomeButton({super.key, required this.text, this.ontap});
   VoidCallback? ontap;
 
   @override

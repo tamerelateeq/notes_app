@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/Views/edit_notes_view.dart';
 import 'package:notes_app/Widgets/custome_button.dart';
 import 'package:notes_app/Widgets/cutome_textfiled.dart';
 

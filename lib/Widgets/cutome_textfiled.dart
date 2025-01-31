@@ -20,15 +20,15 @@ class CustomeTextField extends StatelessWidget {
       onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(
-        border: buildBulder(),
-        enabledBorder: buildBulder(),
-        focusedBorder: buildBulder(kColorPrimary),
+        border: BuildBulder(),
+        enabledBorder: BuildBulder(),
+        focusedBorder: BuildBulder(kColorPrimary),
         hintText: hintText,
       ),
     );
   }
 
-  OutlineInputBorder buildBulder([color]) {
+  OutlineInputBorder BuildBulder([color]) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(color: color ?? Colors.white),

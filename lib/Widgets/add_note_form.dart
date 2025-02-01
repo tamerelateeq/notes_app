@@ -58,10 +58,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 ontap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
+                    var currentDate = DateTime.now();
+                    var formateCurrentDate =
+                        DateFormat.yMEd().format(currentDate);
                     var notesModel = NotesAppModel(
                       title: title!,
                       content: content!,
-                      date: DateTime.now().toString().substring(0, 10),
+                      date: formateCurrentDate,
                       color: Colors.black.r,
                     );
                     BlocProvider.of<AddNotesCubit>(context)

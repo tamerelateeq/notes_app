@@ -15,7 +15,6 @@ class NotesViewsBody extends StatefulWidget {
 class _NotesViewsBodyState extends State<NotesViewsBody> {
   @override
   void initState() {
-    // TODO: implement initState
     BlocProvider.of<GetNotesCubit>(context).GetNotes();
     super.initState();
   }

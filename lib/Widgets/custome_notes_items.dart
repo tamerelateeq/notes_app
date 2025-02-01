@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/Model/notes_app_model.dart';
 
 class NoteItems extends StatelessWidget {
   NoteItems({
     this.onTap,
+    required this.note,
     super.key,
   });
   VoidCallback? onTap;
+  final NotesAppModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,14 +16,16 @@ class NoteItems extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(right: 16, left: 24, top: 24, bottom: 24),
         decoration: BoxDecoration(
-            color: Colors.amber, borderRadius: BorderRadius.circular(10)),
+          color: Colors.amber,
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
               title: Text(
-                'Flutter Tips',
-                style: TextStyle(
+                note.title,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                   fontSize: 30,
@@ -29,10 +34,9 @@ class NoteItems extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16, bottom: 16),
                 child: Text(
-                  'This my body create by Tamer Elateeq',
-                  style: TextStyle(
-                      color: const Color.fromARGB(221, 54, 54, 54),
-                      fontSize: 16),
+                  note.content,
+                  style: const TextStyle(
+                      color: Color.fromARGB(221, 54, 54, 54), fontSize: 16),
                 ),
               ),
               trailing: IconButton(
@@ -46,9 +50,9 @@ class NoteItems extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-                '29 jan 2025',
-                style: TextStyle(
-                  color: const Color.fromARGB(221, 54, 54, 54),
+                note.date,
+                style: const TextStyle(
+                  color: Color.fromARGB(221, 54, 54, 54),
                   fontSize: 16,
                 ),
               ),

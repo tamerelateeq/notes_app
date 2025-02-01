@@ -21,6 +21,7 @@ class NoteListView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: NoteItems(
+                  note: notes[index],
                   onTap: () {
                     Navigator.pushNamed(context, EditNotesView.id);
                   },

@@ -10,7 +10,11 @@ class NotesViewsBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
-        children: [Expanded(child: NoteListView())],
+        children: [
+          Expanded(
+            child: NoteListView(),
+          ),
+        ],
       ),
     );
   }

@@ -5,14 +5,18 @@ import 'package:notes_app/Widgets/add_note_form.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class AddNoteButtonSheet extends StatelessWidget {
-  AddNoteButtonSheet({super.key});
+  const AddNoteButtonSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddNotesCubit(),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.only(
+          left: 16,
+          right: 16,
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
             if (state is AddNotesSuccess) {

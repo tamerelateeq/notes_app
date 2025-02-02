@@ -13,22 +13,19 @@ class NoteListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<NotesAppModel> notes = BlocProvider.of<GetNotesCubit>(context).notes!;
-    return BlocBuilder<GetNotesCubit, GetNotesState>(
-      builder: (context, state) {
-        return ListView.builder(
-            itemCount: notes.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: NoteItems(
-                  note: notes[index],
-                  onTap: () {
-                    Navigator.pushNamed(context, EditNotesView.id);
-                  },
-                ),
-              );
-            });
-      },
-    );
+    return ListView.builder(
+        itemCount: notes.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: NoteItems(
+              note: notes[index],
+              onTap: () {
+                Navigator.pushNamed(context, EditNotesView.id,
+                    arguments: notes[index]);
+              },
+            ),
+          );
+        });
   }
 }

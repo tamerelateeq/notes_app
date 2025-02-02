@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/Cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notes_app/Cubits/get_notes_cubit/get_notes_cubit.dart';
 import 'package:notes_app/Widgets/add_note_form.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class AddNoteButtonSheet extends StatelessWidget {
   const AddNoteButtonSheet({super.key});
@@ -20,6 +20,7 @@ class AddNoteButtonSheet extends StatelessWidget {
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
             if (state is AddNotesSuccess) {
+              BlocProvider.of<GetNotesCubit>(context).GetNotes();
               Navigator.pop(context);
             } else if (state is AddNotesFailure) {
               debugPrint("this error :${state.errMassage}");

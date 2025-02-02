@@ -21,15 +21,19 @@ class _NotesViewsBodyState extends State<NotesViewsBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          Expanded(
-            child: NoteListView(),
+    return BlocBuilder<GetNotesCubit, GetNotesState>(
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Expanded(
+                child: NoteListView(),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

@@ -51,35 +51,41 @@ class _AddNoteFormState extends State<AddNoteForm> {
           SizedBox(
             height: 32,
           ),
+
+          SizedBox(
+            height: 32,
+          ),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
-              return CustomeButton(
-                isLoading: state is AddNotesLoading ? true : false,
-                ontap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    var currentDate = DateTime.now();
-                    var formateCurrentDate =
-                        DateFormat.yMEd().format(currentDate);
-                    var notesModel = NotesAppModel(
-                      title: title!,
-                      content: content!,
-                      date: formateCurrentDate,
-                      color: Colors.black.r,
-                    );
-                    BlocProvider.of<AddNotesCubit>(context)
-                        .addNotes(notesModel);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                },
-                text: 'Add',
-              );
+              return BuildCustomeButton(state, context);
             },
           )
         ],
       ),
+    );
+  }
+
+  CustomeButton BuildCustomeButton(AddNotesState state, BuildContext context) {
+    return CustomeButton(
+      isLoading: state is AddNotesLoading ? true : false,
+      ontap: () {
+        if (formKey.currentState!.validate()) {
+          formKey.currentState!.save();
+          var currentDate = DateTime.now();
+          var formateCurrentDate = DateFormat.yMEd().format(currentDate);
+          var notesModel = NotesAppModel(
+            title: title!,
+            content: content!,
+            date: formateCurrentDate,
+            color: Colors.black.r,
+          );
+          BlocProvider.of<AddNotesCubit>(context).addNotes(notesModel);
+        } else {
+          autovalidateMode = AutovalidateMode.always;
+          setState(() {});
+        }
+      },
+      text: 'Add',
     );
   }
 }

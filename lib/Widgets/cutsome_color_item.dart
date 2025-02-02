@@ -6,6 +6,7 @@ class ColorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
+      radius: 32,
       backgroundColor: Colors.blue,
     );
   }

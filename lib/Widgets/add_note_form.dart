@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/Cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app/Model/notes_app_model.dart';
+import 'package:notes_app/Widgets/color_list_view.dart';
 import 'package:notes_app/Widgets/custome_button.dart';
 import 'package:notes_app/Widgets/cutome_textfiled.dart';
+import 'package:notes_app/Widgets/cutsome_color_item.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -49,17 +51,20 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 5,
           ),
           SizedBox(
-            height: 32,
+            height: 16,
           ),
-
+          ColorListView(),
           SizedBox(
-            height: 32,
+            height: 16,
           ),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
               return BuildCustomeButton(state, context);
             },
-          )
+          ),
+          SizedBox(
+            height: 10,
+          ),
         ],
       ),
     );

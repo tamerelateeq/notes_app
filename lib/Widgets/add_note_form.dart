@@ -6,7 +6,6 @@ import 'package:notes_app/Model/notes_app_model.dart';
 import 'package:notes_app/Widgets/color_list_view.dart';
 import 'package:notes_app/Widgets/custome_button.dart';
 import 'package:notes_app/Widgets/cutome_textfiled.dart';
-import 'package:notes_app/Widgets/cutsome_color_item.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -22,6 +21,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
 
   String? title, content;
+  int? color;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -71,6 +71,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   }
 
   CustomeButton BuildCustomeButton(AddNotesState state, BuildContext context) {
+    color = BlocProvider.of<AddNotesCubit>(context).color.hashCode;
     return CustomeButton(
       isLoading: state is AddNotesLoading ? true : false,
       ontap: () {
@@ -82,7 +83,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             title: title!,
             content: content!,
             date: formateCurrentDate,
-            color: Colors.black.r,
+            color: color!,
           );
           BlocProvider.of<AddNotesCubit>(context).addNotes(notesModel);
         } else {

@@ -8,13 +8,17 @@ class CustomeTextField extends StatelessWidget {
       this.intialValue,
       this.maxLines = 1,
       this.onSaved,
-      this.onChanged});
+      this.onChanged,
+      this.icon,
+      this.onPressed});
   final String? hintText;
   final String? intialValue;
+
   final int maxLines;
+  final void Function()? onPressed;
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
-
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -30,6 +34,7 @@ class CustomeTextField extends StatelessWidget {
       onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(
+        prefixIcon: IconButton(onPressed: onPressed, icon: Icon(icon)),
         border: BuildBulder(),
         enabledBorder: BuildBulder(),
         focusedBorder: BuildBulder(kColorPrimary),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/Cubits/get_notes_cubit/get_notes_cubit.dart';
+import 'package:notes_app/Model/color_model.dart';
 import 'package:notes_app/Model/notes_app_model.dart';
 import 'package:notes_app/Views/edit_notes_view.dart';
 import 'package:notes_app/Views/notes_views.dart';
@@ -14,9 +15,8 @@ void main() async {
   await Hive.initFlutter();
   Bloc.observer = SimpleBlocObserver();
   // Be careful to put  registerAdapter above openbox
-  Hive.registerAdapter(ColorAdapter());
+  Hive.registerAdapter(ColorModelAdapter());
   Hive.registerAdapter(NotesAppModelAdapter());
-
   await Hive.openBox<NotesAppModel>(kNoteBox);
 
   runApp(const MyApp());

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/Model/notes_app_model.dart';
+import 'package:notes_app/Widgets/color_list_edit_view.dart';
 import 'package:notes_app/Widgets/cutome_textfiled.dart';
 
 class EditNotesBody extends StatelessWidget {
@@ -25,8 +26,14 @@ class EditNotesBody extends StatelessWidget {
               note.content = value;
             },
             intialValue: note.content,
-            maxLines: 5,
+            maxLines: 15,
           ),
+          SizedBox(
+            height: 13,
+          ),
+          ColorListEditView(
+            note: note,
+          )
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/Views/search_note.dart';
 import 'package:notes_app/Widgets/build_float_action_button.dart';
 import 'package:notes_app/Widgets/notes_views_body.dart';
 
@@ -16,7 +17,9 @@ class NotesViews extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, SearchView.id);
+              },
               icon: Icon(
                 Icons.search,
                 size: 36,

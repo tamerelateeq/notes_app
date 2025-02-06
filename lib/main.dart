@@ -6,6 +6,7 @@ import 'package:notes_app/Model/color_model.dart';
 import 'package:notes_app/Model/notes_app_model.dart';
 import 'package:notes_app/Views/edit_notes_view.dart';
 import 'package:notes_app/Views/notes_views.dart';
+import 'package:notes_app/Views/search_note.dart';
 import 'package:notes_app/constant.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         routes: {
           NotesViews.id: (context) => NotesViews(),
           EditNotesView.id: (context) => EditNotesView(),
+          SearchView.id: (context) => SearchView(),
         },
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),

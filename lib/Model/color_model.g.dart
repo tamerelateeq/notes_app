@@ -17,16 +17,25 @@ class ColorModelAdapter extends TypeAdapter<ColorModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return ColorModel(
-      color: fields[0] as Color,
+      a: fields[0] as double,
+      r: fields[1] as double,
+      g: fields[2] as double,
+      b: fields[3] as double,
     );
   }
 
   @override
   void write(BinaryWriter writer, ColorModel obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(4)
       ..writeByte(0)
-      ..write(obj.color);
+      ..write(obj.a)
+      ..writeByte(1)
+      ..write(obj.r)
+      ..writeByte(2)
+      ..write(obj.g)
+      ..writeByte(3)
+      ..write(obj.b);
   }
 
   @override

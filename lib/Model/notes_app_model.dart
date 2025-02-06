@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:notes_app/Model/color_model.dart';
 
 part 'notes_app_model.g.dart';
 
@@ -11,7 +12,7 @@ class NotesAppModel extends HiveObject {
   @HiveField(2)
   final String date;
   @HiveField(3)
-  int color;
+  ColorModel color;
 
   NotesAppModel(
       {required this.title,

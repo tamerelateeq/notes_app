@@ -9,10 +9,14 @@ import 'package:notes_app/constant.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
   Bloc.observer = SimpleBlocObserver();
   // Be careful to put  registerAdapter above openbox
+  Hive.registerAdapter(ColorAdapter());
   Hive.registerAdapter(NotesAppModelAdapter());
+
   await Hive.openBox<NotesAppModel>(kNoteBox);
 
   runApp(const MyApp());

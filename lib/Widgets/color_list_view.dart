@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/Cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notes_app/Model/color_model.dart';
 import 'package:notes_app/Widgets/cutsome_color_item.dart';
 
 class ColorListView extends StatefulWidget {
@@ -11,12 +12,12 @@ class ColorListView extends StatefulWidget {
 }
 
 int? currentIndex;
-List<Color> colors = [
-  Colors.amber,
-  Colors.green,
-  Colors.purple,
-  Colors.red,
-  Colors.yellow
+List<ColorModel> colors = [
+  ColorModel(a: 255, r: 255, g: 193, b: 7),
+  ColorModel(a: 255, r: 76, g: 175, b: 80),
+  ColorModel(a: 255, r: 224, g: 64, b: 251),
+  ColorModel(a: 255, r: 224, g: 67, b: 54),
+  ColorModel(a: 255, r: 224, g: 64, b: 129),
 ];
 
 class _ColorListViewState extends State<ColorListView> {
@@ -38,7 +39,7 @@ class _ColorListViewState extends State<ColorListView> {
               },
               child: ColorItem(
                 isActive: currentIndex == index,
-                color: colors[index],
+                color: colors[index].toColor(),
               ),
             ),
           );

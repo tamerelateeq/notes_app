@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/Cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notes_app/Model/color_model.dart';
 import 'package:notes_app/Model/notes_app_model.dart';
 import 'package:notes_app/Widgets/color_list_view.dart';
 import 'package:notes_app/Widgets/custome_button.dart';
@@ -21,7 +22,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
 
   String? title, content;
-  int? color;
+  ColorModel? color;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -71,7 +72,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   }
 
   CustomeButton BuildCustomeButton(AddNotesState state, BuildContext context) {
-    color = BlocProvider.of<AddNotesCubit>(context).color.hashCode;
+    color = BlocProvider.of<AddNotesCubit>(context).color;
     return CustomeButton(
       isLoading: state is AddNotesLoading ? true : false,
       ontap: () {

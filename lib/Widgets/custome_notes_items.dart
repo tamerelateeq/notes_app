@@ -4,12 +4,12 @@ import 'package:notes_app/Cubits/get_notes_cubit/get_notes_cubit.dart';
 import 'package:notes_app/Model/notes_app_model.dart';
 
 class NoteItems extends StatelessWidget {
-  NoteItems({
+  const NoteItems({
     this.onTap,
     required this.note,
     super.key,
   });
-  VoidCallback? onTap;
+  final VoidCallback? onTap;
   final NotesAppModel note;
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class NoteItems extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(right: 16, left: 24, top: 24, bottom: 24),
         decoration: BoxDecoration(
-          color: Color(note.color),
+          color: note.color.toColor(),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(

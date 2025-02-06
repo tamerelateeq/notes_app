@@ -6,12 +6,13 @@ import 'package:notes_app/constant.dart';
 
 class ColorListEditView extends StatefulWidget {
   const ColorListEditView({super.key, required this.note});
+
   final NotesAppModel note;
   @override
   State<ColorListEditView> createState() => _ColorListEditViewState();
 }
 
-int? currentIndex;
+late int currentIndex;
 
 class _ColorListEditViewState extends State<ColorListEditView> {
   @override
@@ -27,7 +28,7 @@ class _ColorListEditViewState extends State<ColorListEditView> {
             child: GestureDetector(
               onTap: () {
                 currentIndex = index;
-
+                widget.note.color = kColorsList[index];
                 setState(() {});
               },
               child: ColorItem(

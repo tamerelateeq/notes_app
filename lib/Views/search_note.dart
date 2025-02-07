@@ -13,15 +13,7 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SearchNoteCubit(),
-      child: BlocConsumer<SearchNoteCubit, SearchNoteState>(
-        listener: (context, state) {
-          if (state is SearchNoteLoading) {
-            CircularProgressIndicator();
-          }else if(State is SearchNoteFailure){
-            
-            NoResult(text:state.);
-          }
-        },
+      child: BlocBuilder<SearchNoteCubit, SearchNoteState>(
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
@@ -36,7 +28,9 @@ class SearchView extends StatelessWidget {
                 },
               ),
             ),
-            body: NotesViewsBodySearch(),
+            body: state is SearchNoteSuccess
+                ? NotesViewsBodySearch()
+                : NoResult(text: 'No Result'),
           );
         },
       ),

@@ -14,7 +14,7 @@ class SearchNoteCubit extends Cubit<SearchNoteState> {
   searchNote(String value) {
     try {
       var noteBox = Hive.box<NotesAppModel>(kNoteBox);
-
+      noteList.clear();
       for (var note in noteBox.values) {
         if (note.title.toLowerCase().contains(value.toLowerCase()) ||
             note.content.toLowerCase().contains(value.toLowerCase())) {

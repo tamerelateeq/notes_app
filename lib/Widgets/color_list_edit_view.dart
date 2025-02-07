@@ -12,7 +12,7 @@ class ColorListEditView extends StatefulWidget {
   State<ColorListEditView> createState() => _ColorListEditViewState();
 }
 
-late int currentIndex;
+int currentIndex = 0;
 
 class _ColorListEditViewState extends State<ColorListEditView> {
   @override

@@ -6,7 +6,13 @@ class NoResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(text),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 31,
+        ),
+      ),
     );
   }
 }

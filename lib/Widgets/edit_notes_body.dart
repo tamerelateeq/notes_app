@@ -10,31 +10,33 @@ class EditNotesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          CustomeTextField(
-            onChanged: (value) {
-              note.title = value;
-            },
-            intialValue: note.title,
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          CustomeTextField(
-            onChanged: (value) {
-              note.content = value;
-            },
-            intialValue: note.content,
-            maxLines: 15,
-          ),
-          SizedBox(
-            height: 13,
-          ),
-          ColorListEditView(
-            note: note,
-          )
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomeTextField(
+              onChanged: (value) {
+                note.title = value;
+              },
+              intialValue: note.title,
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            CustomeTextField(
+              onChanged: (value) {
+                note.content = value;
+              },
+              intialValue: note.content,
+              maxLines: 15,
+            ),
+            SizedBox(
+              height: 13,
+            ),
+            ColorListEditView(
+              note: note,
+            )
+          ],
+        ),
       ),
     );
   }

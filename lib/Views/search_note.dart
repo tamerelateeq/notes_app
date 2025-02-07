@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/Cubits/cubit/search_note_cubit.dart';
+import 'package:notes_app/Cubits/search_note_cubit/search_note_cubit.dart';
+
 import 'package:notes_app/Widgets/cutome_textfiled.dart';
+import 'package:notes_app/Widgets/no_result_notes.dart';
 import 'package:notes_app/Widgets/notes_body_search.dart';
 
 class SearchView extends StatelessWidget {
@@ -11,7 +13,15 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SearchNoteCubit(),
-      child: BlocBuilder<SearchNoteCubit, SearchNoteState>(
+      child: BlocConsumer<SearchNoteCubit, SearchNoteState>(
+        listener: (context, state) {
+          if (state is SearchNoteLoading) {
+            CircularProgressIndicator();
+          }else if(State is SearchNoteFailure){
+            
+            NoResult(text:state.);
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(

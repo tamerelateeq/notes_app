@@ -44,7 +44,7 @@ class NoteItems extends StatelessWidget {
               trailing: IconButton(
                   onPressed: () {
                     note.delete();
-                    BlocProvider.of<GetNotesCubit>(context).GetNotes();
+                    BlocProvider.of<GetNotesCubit>(context).getNotes();
                   },
                   icon: Icon(
                     Icons.delete,

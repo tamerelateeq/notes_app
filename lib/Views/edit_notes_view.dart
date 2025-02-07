@@ -24,7 +24,7 @@ class EditNotesView extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 note.save();
-                BlocProvider.of<GetNotesCubit>(context).GetNotes();
+                BlocProvider.of<GetNotesCubit>(context).getNotes();
                 Navigator.pop(context);
               },
               icon: Icon(

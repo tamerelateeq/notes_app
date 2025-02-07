@@ -20,7 +20,7 @@ class AddNoteButtonSheet extends StatelessWidget {
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
             if (state is AddNotesSuccess) {
-              BlocProvider.of<GetNotesCubit>(context).GetNotes();
+              BlocProvider.of<GetNotesCubit>(context).getNotes();
               Navigator.pop(context);
             } else if (state is AddNotesFailure) {
               debugPrint("this error :${state.errMassage}");
